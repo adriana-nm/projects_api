@@ -2,6 +2,7 @@ import json
 import requests
 import re
 import pandas as pd
+import os
 
 pd.set_option('display.max_columns', None)
 
@@ -92,8 +93,8 @@ def oscar_movie_ratings(first_year, last_year, wa_key, imdbkey):
     return print(df_oscar)
 
 
-wa_key = '6KAPRH-LAKULYWG3V'
-imdbkey = 'k_andmjalz'
+wa_key = os.getenv('WA_KEY')
+imdbkey = os.getenv('IMDB_KEY')
 oscar_list_first_year = 1998
 oscar_list_last_year = 1998
 oscar_movie_ratings(oscar_list_first_year, oscar_list_last_year, wa_key, imdbkey)
